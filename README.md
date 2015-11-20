@@ -1,4 +1,6 @@
-# openshift-example
+## openshift-example
+
+https://developers.openshift.com/en/node-js-getting-started.html
 
 - Clone an github app in c9.io
 ```
