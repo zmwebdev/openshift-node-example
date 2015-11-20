@@ -23,7 +23,12 @@ app.get('/kaixo.txt', function(req, res) {
     res.send('Kaixo Mundua');
 });
 
+//app.listen(port, [hostname], [backlog], [callback])
+// http://expressjs.com/4x/api.html
 
-var server = app.listen(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000, function(){
+var port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000;
+var ip = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || "0.0.0.0";
+
+var server = app.listen(port, ip, function(){
     console.log('Listening in port %d', server.address().port);
 });
