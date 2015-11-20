@@ -11,4 +11,13 @@ $ git remote add openshift ssh://564f500e0c1e6640f300010d@nodejs-zmwebdev.rhclou
 $ git push -f openshift master
 
 $ rhc tail nodejs
+
+(go to the openshift web and launch the app url)
+
+develop proccess:
+$ git commit ...
+test locally
+$ git push origin master  (push to github)
+$ git push openshift master
+test in openshift
 ```
