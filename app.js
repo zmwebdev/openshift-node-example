@@ -1,9 +1,29 @@
-// $ node app.js
+var express = require('express');
+var app = express();
 
-var http = require("http");
+app.get('/', function(req, res){
+	res.send('Kaixo');
+});
 
-http.createServer(function(request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello World");
-  response.end();
-}).listen(process.env.OPENSHIFT_NODEJS_PORT || 8080);
+// http://localhost:3000/hello.txt?q=xxxxxx
+app.get('/hello.txt', function(req, res) {
+
+	var q = req.query.q;
+	console.log(q);
+
+    res.send('Hello World: ' + q);
+});
+
+app.get('/hola.txt', function(req, res) {
+	console.log("he ejecutado /hola.txt");
+    res.send('Hola Mundo!');
+});
+
+app.get('/kaixo.txt', function(req, res) {
+    res.send('Kaixo Mundua');
+});
+
+
+var server = app.listen(process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000, function(){
+    console.log('Listening in port %d', server.address().port);
+});
